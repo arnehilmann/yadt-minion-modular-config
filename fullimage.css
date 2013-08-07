@@ -15,6 +15,9 @@ div.fullimage {
 .fullimage .inner header {
   display: none;
 }
+.fullimage .inner section {
+  font-size: 48px;
+}
 div.fullimage img {
   position: absolute;
   margin-top: -40px;

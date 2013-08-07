@@ -6,34 +6,74 @@
 
 ---
 
-<img src="res/waterfall.jpg" style="height: 800px;"/>
+<img src="res/7207121_f520.jpg"/>
 
-.fx: imageslide
+Artefacts and their Configuration
+
+.fx: fullimage whitetext
 
 ---
 
-# Solution
+# Artefacts with Config Snippets,
 
-/etc/yadt.services
+*from httpd artefact:*
 
     !python
-    ...
-    tomcat:
-        needs_artefacts: [is24-jcr]
-    ...
+    service:
+        httpd:
+
+*from tomcat artefact:*
+
+    !python
+    service:
+        tomcat:
+
+---
+
+# Merged in Filesystem,
+
+    !python
+    /etc/yadt.conf.d/
+        00_defaults
+        01_host_settings
+        20_httpd
+        30_tomcat
+
+---
+
+# ... Resulting in a Minimal Yadt Config
+
+    !python
+    services:
+      - httpd:
+      - tomcat:
+
+---
+
+# Additional Dependencies ...
+
+*from httpd-with-tomcat artefact:*
+
+    !python
+    service:
+        tomcat:
+            needs_services: [httpd]
+
+---
+
+# ... Gets Merged, too!
+
+    !python
+    services:
+        httpd:
+        tomcat:
+            needs_services: [httpd]
 
 ---
 
 # Perspective
 
-<div class="whitebody">
-modularization of the yadt config
-<p/>
-
-(an invitation to next yadt talk :o)
-</div>
-
-<img src="res/beyond_horizon.jpg" style="height: 576px;" />
+<img src="res/beyond_horizon.jpg" />
 
 .fx: imageslide whiteheading
 
