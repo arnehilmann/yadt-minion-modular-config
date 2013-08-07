@@ -1,0 +1,40 @@
+.whitetext {
+  color: white;
+  text-shadow: 0 0 8px black, -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+div.fullimage {
+  position: absolute;
+  width: 1024px;
+  #height: 576px;
+  height: 768px;
+  z-index: 10;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+.fullimage .inner header {
+  display: none;
+}
+div.fullimage img {
+  position: absolute;
+  margin-top: -40px;
+  margin-left: -80px;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+  min-width: 1024px;
+  #min-height: 576px;
+  min-height: 768px;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: auto;
+}
+.fullimage .inner section *:not(img) {
+  position:relative;
+  width: 864px;
+  margin-top: 40px;
+  margin-left: 80px;
+  z-index: 10;
+}
+
