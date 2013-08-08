@@ -71,6 +71,24 @@ Artefacts and their Configuration
 
 ---
 
+# Bonus settings
+    !python
+    settings: {
+        'ARTEFACTS_INDUCING_REBOOT': ['glibc'],
+        'package_handling': {
+            'stop_dependency_resolution': {
+                'provides': ['is24-config-all']
+            }
+        }
+    }
+
+---
+
+# Making the jump
+  * Stop delivering yadt.services
+
+---
+
 # Perspective
 
 <img src="res/beyond_horizon.jpg" />
